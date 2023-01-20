@@ -28,6 +28,9 @@ class SubCategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['title_ru', 'sub_category', 'grade', 'drying_type', 'photo']
 
-admin.site.register(Category, CategoryAdmin)
+# admin.site.register(Category, CategoryAdmin)
 admin.site.register(SubCategory, SubCategoryAdmin)
 admin.site.register(Product, ProductAdmin)
+
+admin.site.site_header = 'Sunny Sweet Fruits admin'
+admin.site.site_title = 'Sunny Sweet Fruits'
