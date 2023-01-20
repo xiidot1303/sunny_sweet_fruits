@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+      .multi-button {
+        position: relative;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 14px;
+        padding: 3px;
+        box-shadow: 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+        place-items: center;
+        /* z-index: -33333; */
+        right: 10px;
+        
+      }
+      #en-gb {
+        background: #006487; 
+        border: none;
+      }
+
+      #ru {
+        background: #00b595; 
+        border: none;
+
+      }
+      #ru:focus
+      {
+        outline: 2px solid #00b595;
+      }
+      #en-gb:focus
+      {
+        outline: 2px solid #006487;
+      }
+
+      .button {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 15px 0 rgba(0, 0, 0, 0.09);
+        padding: 5px 9px 5px 9px;
+        font: 15px Ubuntu;
+        color: white;
+        border-radius: 7px;
+      }

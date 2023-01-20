@@ -1,0 +1,131 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+
+{% block main %}
+    <!--======= Header Section =======-->
+    <header>
+      <div class="page-header min-vh-85">
+        <div class="opacity-8">
+          <img
+            class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0"
+            src="{% static 'assets/img/curved-images/curvedballon.png' %}"
+            alt="image"
+          />
+          <img
+            style="position: absolute; top: 90px; right: 130px; opacity: 1"
+            src="{% static 'assets/img/istockphoto-1264353866-612x612-removebg-preview.png' %}"
+            alt="img"
+          />
+        </div>
+        <div class="container">
+          <div>
+            <div
+              class="col-lg-7 mt-5 d-flex justify-content-center flex-column"
+            >
+              <div
+                class="card d-flex blur justify-content-center p-4 shadow-lg my-sm-0 my-sm-6 mt-8 mb-5"
+              >
+                <div class="text-center">
+                  <h3 class="text-gradient text-primary">{{ request|string:'communication' }}</h3>
+                  <p class="mb-0">
+                    {{ request|string:'leave your contact details and we will contact you' }}
+                  </p>
+                </div>
+                <form id="contact-form" method="post" autocomplete="off">
+                  <div class="card-body pb-2">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>{{ request|string:'type name' }}:</label>
+                        <div class="input-group mb-4">
+                          <input
+                            class="form-control"
+                            placeholder="{{ request|string:'type name' }}"
+                            aria-label="{{ request|string:'type name' }}:"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label>{{ request|string:'your phone' }}:</label>
+                        <div class="input-group mb-4">
+                          <input
+                            class="form-control"
+                            placeholder="{{ request|string:'your phone' }}"
+                            aria-label="{{ request|string:'your phone' }}:"
+                            type="number"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6 ps-md-2">
+                        <label>{{ request|string:'type email' }}:</label>
+                        <div class="input-group">
+                          <input
+                            type="email"
+                            class="form-control"
+                            placeholder="admin@example.com"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="text-dark">{{ request|string:'specify volume' }}</label>
+                        <div class="form-group mb-0">
+                          <select name="select" class="form-select" id="select">
+                            <option value="1-5">
+                              {{ request|string:'from' }} 1 {{ request|string:'to' }} 5 {{ request|string:'tons' }}
+                            </option>
+                            <option value="5-10">
+                              {{ request|string:'from' }} 5 {{ request|string:'to' }} 10 {{ request|string:'tons' }}
+                            </option>
+                            <option value="10-20">
+                              {{ request|string:'from' }} 10 {{ request|string:'to' }} 20 {{ request|string:'tons' }}
+                            </option>
+                            <option value="20-100">
+                              {{ request|string:'from' }} 20 {{ request|string:'to' }} 100 {{ request|string:'tons' }}
+                            </option>
+                            <option value="more">{{ request|string:'more volume' }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-0 mt-md-0 mt-4">
+                      <label>{{ request|string:'which of our products are you interested in?' }}</label>
+                      <textarea
+                        name="message"
+                        class="form-control"
+                        id="message"
+                        rows="6"
+                        placeholder="{{ request|string:'enter text here' }}"
+                      ></textarea>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+                        <button
+                          type="submit"
+                          class="btn bg-gradient-success mt-3 mb-0"
+                        >
+                          {{ request|string:'send' }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+{% endblock %}
+
+{% block script %}
+    <script>
+      var myModal = document.getElementById("myModal");
+      var myInput = document.getElementById("myInput");
+
+      myModal.addEventListener("shown.bs.modal", function () {
+        myInput.focus();
+      });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,179 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'assets/css/snow.css' %}" />
+{% endblock %}
+
+{% block main %}
+    <!--======= Header Section =======-->
+    <header class="bg-gradient-dark">
+      <!-- snow -->
+      <div class="snowflakes">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+      </div>
+      <div
+        class="page-header min-vh-75"
+        style="
+          background-image: url('{% static 'assets/img/curved-images/curvedballon.png' %}');
+        "
+      >
+        <span class="mask bg-gradient-success opacity-8"></span>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mx-auto my-auto">
+              <h1 class="text-white py-2">{{ request|title_string:obj.category }}</h1>
+              <div
+                class="breadcrumb bg-gradient-custom blur blur-rounded text-white"
+              >
+              {{ request|string:'home' }} > {{ request|title_string:obj.category }} > {{ request|title_string:obj }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="position-absolute w-100 z-index-1 bottom-0">
+          <svg
+            class="waves"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 40"
+            preserveAspectRatio="none"
+            shape-rendering="auto"
+          >
+            <defs>
+              <path
+                id="gentle-wave"
+                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+              />
+            </defs>
+            <g class="moving-waves">
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="-1"
+                fill="rgba(255,255,255,0.40"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="3"
+                fill="rgba(255,255,255,0.35)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="5"
+                fill="rgba(255,255,255,0.25)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="8"
+                fill="rgba(255,255,255,0.20)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="13"
+                fill="rgba(255,255,255,0.15)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="16"
+                fill="rgba(255,255,255,1"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </header>
+    <!--======= Raisins Section =======-->
+    <section class="raisins-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h3 class="text-dark text-center py-4">{{ request|title_string:obj }}</h3>
+          </div>
+        </div>
+        <!-- Raisins section -->
+        <div class="row">
+          <div class="col">
+            <div class="row mt-3"></div>
+            <div class="row mt-3">
+
+              {% for product in obj.products %}
+              <div class="col-lg-3 col-sm-6">
+                <div class="card card-plain card-blog">
+                  <div class="card-image border-radius-lg position-relative">
+                    <a href="/contact">
+                      <img
+                        class="w-100 border-radius-lg move-on-hover shadow"
+                        src="/files/{{ product.photo }}"
+                      />
+                    </a>
+                  </div>
+                  <div class="card-body px-0">
+                    <h5>
+                      <a href="/contact" class="text-dark font-weight-bold"
+                        >{{ request|title_string:product }}</a
+                      >
+                    </h5>
+                    {% if product.grade %}
+                    <p>
+                      <i class="fa-solid fa-arrow-up-short-wide fa-sm"></i>
+                      {{ request|string:'grade' }}: {{ request|string:product.grade }}
+                    </p>
+                    {% endif %}
+
+                    {% if product.drying_type %}
+                    <p>
+                      <i class="fa-solid fa-sun fa-sm"></i>
+                      {{ request|string:'drying type' }}: {{ request|string:product.drying_type }}
+                    </p>
+                    {% endif %}
+
+                    {% if product.packaging %}
+                    <p>
+                      <i class="fa-solid fa-box-open fa-sm"></i>
+                      {{ request|string:'packaging — box' }} {{ request|string:product.packaging }} {{ request|string:'kg' }}
+                    </p>
+                    {% endif %}
+
+                    {% if product.bag %}
+                    <p>
+                      <i class="fa-solid fa-bag-shopping fa-sm"></i>
+                       {{ request|string:'or plastic bag package' }}
+                    </p>
+                    {% endif %}
+
+                    <a
+                      href="/contact"
+                      class="btn btn-sm bg-gradient-success btn-round d-block mx-auto"
+                      style="width: 150px"
+                      >{{ request|string:'contact' }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+              <!-- next & prev -->
+              <div class="col-12 py-4">
+                <a href="{{request.META.HTTP_REFERER}}" class="btn btn-dark btn-round">« {{ request|string:'back' }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

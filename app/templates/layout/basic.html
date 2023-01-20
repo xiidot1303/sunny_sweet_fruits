@@ -1,0 +1,738 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" type="image/png" href="{% static 'assets/img/companyLogo/SunnySweetFruits-onlyGraphic.png' %}" />
+    <title>Sunny Sweet Fruits</title>
+    <!--======= Fonts And Icons =======-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+
+    <!--======= Nucleo Icons =======-->
+    <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+
+    <!--======= Font Awesome Icons =======-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--======= CSS Files =======-->
+    <link href="{% static 'assets/css/translate-button.css' %}" rel="stylesheet" />
+    <link
+      id="pagestyle"
+      href="{% static 'assets/css/soft-design-system.css' %}?v=1.0.9"
+      rel="stylesheet"
+    />
+
+    {% block link %}
+    {% endblock %}
+
+  </head>
+  <body>
+    <!--======= Navbar Section =======-->
+    <div class="container position-sticky z-index-sticky top-0">
+      <div class="row">
+        <div class="col-12">
+          <nav
+            class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4"
+          >
+            <div class="container-fluid px-0">
+              <a
+                class="navbar-brand font-weight-bolder ms-sm-3"
+                href="/"
+              >
+                <img
+                  src="{% static 'assets/img/companyLogo/SunnySweetFruits-onlyGraphic.png' %}"
+                  alt="img"
+                  style="height: 50px"
+                />
+                Sunny Sweet Fruits
+              </a>
+              <button
+                class="navbar-toggler shadow-none ms-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navigation"
+                aria-controls="navigation"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon mt-2">
+                  <span class="navbar-toggler-bar bar1"></span>
+                  <span class="navbar-toggler-bar bar2"></span>
+                  <span class="navbar-toggler-bar bar3"></span>
+                </span>
+              </button>
+              <div
+                class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100"
+                id="navigation"
+              >
+                <ul class="navbar-nav navbar-nav-hover ms-lg-12  ps-lg-2 w-100">
+
+                  <li class="nav-item">
+                    <div class="multi-button">
+                      <a href="{% url 'change_lang' 0 %}">
+                        <button class="button translate" id="ru"><span>Ru</span></button>
+                      </a>
+                      <a href="{% url 'change_lang' 1 %}">
+                        <button class="button translate" id="en-gb"><span>En</span></button>
+                      </a>
+                    </div>
+                  </li>
+
+                  <!--======= Item 1 =======-->
+                  <li class="nav-item mx-2 my-auto">
+                    <a href="/" class="active">{{ request|string:'home' }}</a>
+                  </li>
+                 <!--======= Item 2 =======-->
+                  <li class="nav-item dropdown dropdown-hover mx-2">
+                    <a
+                      class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                      href="javascript:;"
+                      id="dropdownMenuPages"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      {{ request|string:'products' }}
+                      <img
+                        src="{% static 'assets/img/down-arrow-dark.svg' %}"
+                        alt="down-arrow"
+                        class="arrow ms-1"
+                      />
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-animation dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
+                      aria-labelledby="dropdownMenuPages"
+                    >
+                      <div class="d-lg-block">
+                        {% with category=categories|index:0 %}
+                        <div
+                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0"
+                        >
+                          <a
+                            href="{% url 'category' category.pk %}"
+                            class="d-inline-block"
+                          >
+                            <div
+                              class="icon icon-shape icon-xs border-radius-md bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center"
+                            >
+                              <svg
+                                version="1.1"
+                                id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 512 512"
+                                xml:space="preserve"
+                                fill="#000000"
+                              >
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                  <path
+                                    style="fill: #55d0ff"
+                                    d="M471.149,8.173h-32.681v495.66h32.681c17.974,0,32.681-14.706,32.681-32.681V40.854 C503.83,22.88,489.123,8.173,471.149,8.173z"
+                                  ></path>
+                                  <path
+                                    style="fill: #aae8ff"
+                                    d="M471.149,40.854v430.298c0,17.974-14.706,32.681-32.681,32.681H40.851 c-17.974,0-32.681-14.706-32.681-32.681V40.854c0-17.974,14.706-32.681,32.681-32.681h397.617 C456.443,8.173,471.149,22.88,471.149,40.854z"
+                                  ></path>
+                                  <polygon
+                                    style="fill: #ffd46e"
+                                    points="239.627,40.854 239.627,239.674 206.946,239.674 174.265,140.264 206.946,40.854 "
+                                  ></polygon>
+                                  <rect
+                                    x="40.851"
+                                    y="40.854"
+                                    style="fill: #ffe9b7"
+                                    width="166.095"
+                                    height="198.819"
+                                  ></rect>
+                                  <path
+                                    style="fill: #e52c22"
+                                    d="M140.266,74.897V205.62c27.082,0,49.021-21.94,49.021-49.021 C188.656,114.964,158.731,74.897,140.266,74.897z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ec5123"
+                                    d="M140.266,74.897c6.155,0,16.242,40.067,16.34,81.702c0.076,27.082-7.31,49.021-16.34,49.021 c-27.071,0-49.01-21.94-49.01-49.021C91.888,114.964,121.812,74.897,140.266,74.897z"
+                                  ></path>
+                                  <polygon
+                                    style="fill: #5b4fff"
+                                    points="239.692,272.33 239.692,471.149 207.011,471.149 174.331,371.739 207.011,272.33 "
+                                  ></polygon>
+                                  <rect
+                                    x="40.916"
+                                    y="272.33"
+                                    style="fill: #2e84ff"
+                                    width="166.095"
+                                    height="198.819"
+                                  ></rect>
+                                  <polygon
+                                    style="fill: #ffd46e"
+                                    points="471.149,272.33 471.149,471.149 438.468,471.149 405.787,371.739 438.468,272.33 "
+                                  ></polygon>
+                                  <rect
+                                    x="272.373"
+                                    y="272.33"
+                                    style="fill: #ffe9b7"
+                                    width="166.095"
+                                    height="198.819"
+                                  ></rect>
+                                  <polygon
+                                    style="fill: #5b4fff"
+                                    points="471.149,40.854 471.149,239.674 438.468,239.674 405.787,140.264 438.468,40.854 "
+                                  ></polygon>
+                                  <rect
+                                    x="272.373"
+                                    y="40.854"
+                                    style="fill: #2e84ff"
+                                    width="166.095"
+                                    height="198.819"
+                                  ></rect>
+                                  <path
+                                    style="fill: #ffd46e"
+                                    d="M351.352,74.897c36.047,0,65.351,29.326,65.351,65.362c0,36.047-29.304,65.373-65.351,65.373 l21.776-65.373L351.352,74.897z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ffe9b7"
+                                    d="M351.352,74.897c18.018,0,32.67,29.326,32.67,65.362c0,36.047-14.652,65.373-32.67,65.373 c-13.53,0-24.532-10.981-24.532-24.522c0-13.53,11.003-24.511,24.532-24.511c8.976-0.044,16.33-7.353,16.33-16.34 c0-8.976-7.353-16.286-16.33-16.34c-13.53,0-24.532-10.97-24.532-24.511C326.819,85.878,337.822,74.897,351.352,74.897z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ffd46e"
+                                    d="M119.865,306.383c36.047,0,65.351,29.326,65.351,65.362c0,36.047-29.304,65.373-65.351,65.373 l21.776-65.373L119.865,306.383z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ffe9b7"
+                                    d="M119.865,306.383c18.018,0,32.67,29.326,32.67,65.362c0,36.047-14.652,65.373-32.67,65.373 c-13.53,0-24.532-10.981-24.532-24.522c0-13.53,11.003-24.511,24.532-24.511c8.976-0.044,16.33-7.353,16.33-16.34 c0-8.976-7.353-16.286-16.33-16.34c-13.53,0-24.532-10.97-24.532-24.511C95.332,317.364,106.335,306.383,119.865,306.383z"
+                                  ></path>
+                                  <path
+                                    style="fill: #e52c22"
+                                    d="M371.761,306.39v130.723c27.082,0,49.021-21.94,49.021-49.021 C420.15,346.456,390.226,306.39,371.761,306.39z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ec5123"
+                                    d="M371.761,306.39c6.155,0,16.242,40.067,16.34,81.702c0.076,27.082-7.31,49.021-16.34,49.021 c-27.071,0-49.01-21.94-49.01-49.021C323.382,346.456,353.307,306.39,371.761,306.39z"
+                                  ></path>
+                                  <path
+                                    d="M239.692,32.681H40.851c-4.513,0-8.17,3.658-8.17,8.17v198.823c0,4.512,3.657,8.17,8.17,8.17h198.841 c4.513,0,8.17-3.658,8.17-8.17V40.851C247.862,36.339,244.205,32.681,239.692,32.681z M231.522,231.504H49.021V49.021h182.501 V231.504z"
+                                  ></path>
+                                  <path
+                                    d="M471.149,0H40.851C18.325,0,0,18.325,0,40.851v430.298C0,493.675,18.325,512,40.851,512h430.298 C493.675,512,512,493.675,512,471.149V40.851C512,18.325,493.675,0,471.149,0z M495.66,471.149 c0,13.516-10.996,24.511-24.511,24.511H40.851c-13.515,0-24.511-10.995-24.511-24.511V40.851c0-13.516,10.996-24.511,24.511-24.511 h430.298c13.515,0,24.511,10.995,24.511,24.511V471.149z"
+                                  ></path>
+                                  <path
+                                    d="M351.354,148.433c-18.033,0-32.704,14.661-32.704,32.68c0,18.021,14.67,32.684,32.704,32.684 c40.537,0,73.517-32.988,73.517-73.535s-32.979-73.535-73.517-73.535c-18.033,0-32.704,14.662-32.704,32.684 c0,18.02,14.67,32.68,32.658,32.68c4.521,0.025,8.2,3.691,8.2,8.171C359.51,144.742,355.831,148.408,351.354,148.433z M351.354,115.75c-9.022,0-16.363-7.33-16.363-16.339c0-9.011,7.34-16.344,16.363-16.344c31.527,0,57.176,25.658,57.176,57.195 c0,31.538-25.649,57.195-57.176,57.195c-9.022,0-16.363-7.332-16.363-16.344c0-9.01,7.34-16.339,16.409-16.339 c13.482-0.075,24.45-11.071,24.45-24.512C375.85,126.82,364.882,115.825,351.354,115.75z"
+                                  ></path>
+                                  <path
+                                    d="M471.149,32.681H272.373c-4.513,0-8.17,3.658-8.17,8.17v198.823c0,4.512,3.657,8.17,8.17,8.17h198.776 c4.513,0,8.17-3.658,8.17-8.17V40.851C479.319,36.339,475.662,32.681,471.149,32.681z M462.979,231.504H280.543V49.021h182.435 V231.504z"
+                                  ></path>
+                                  <path
+                                    d="M371.761,445.283c31.534,0,57.188-25.656,57.188-57.191c0-0.041,0-0.083-0.001-0.124 c-0.309-20.347-7.286-42.501-19.139-60.784c-11.757-18.135-25.981-28.962-38.048-28.962c-0.228,0-0.454,0.007-0.681,0.019 c-11.918,0.395-25.829,11.147-37.366,28.943c-11.854,18.283-18.83,40.438-19.139,60.784c-0.001,0.041-0.001,0.083-0.001,0.124 C314.574,419.628,340.227,445.283,371.761,445.283z M412.609,388.153c-0.023,15.288-8.49,28.627-20.975,35.611 c1.619-5.258,2.86-11.411,3.674-18.382c0.524-4.482-2.684-8.539-7.165-9.065c-4.497-0.528-8.541,2.683-9.065,7.166 c-1.657,14.152-5.206,22.025-7.328,24.722c-3.04-3.829-8.216-17.52-8.158-40.092c0.07-27.602,4.386-51.416,8.173-64.61 c3.016,10.531,6.354,27.863,7.643,48.751c0.278,4.505,4.152,7.927,8.657,7.652c4.503-0.278,7.928-4.154,7.651-8.657 c-0.943-15.314-3.156-31.109-6.131-43.98c2.169,2.563,4.364,5.49,6.511,8.804C406.314,351.83,412.331,370.809,412.609,388.153z M347.425,336.072c2.144-3.307,4.335-6.23,6.5-8.791c-0.195,0.849-0.389,1.717-0.584,2.613c-3.82,17.605-6.039,38.809-6.088,58.175 c-0.029,11.484,1.296,24.804,4.656,35.704c-12.494-6.981-20.971-20.326-20.994-35.622 C331.191,370.809,337.208,351.83,347.425,336.072z"
+                                  ></path>
+                                  <path
+                                    d="M471.149,264.184H272.373c-4.513,0-8.17,3.658-8.17,8.17v198.794c0,4.512,3.657,8.17,8.17,8.17h198.776 c4.513,0,8.17-3.658,8.17-8.17V272.355C479.319,267.842,475.662,264.184,471.149,264.184z M462.979,462.979H280.543V280.525h182.435 V462.979z"
+                                  ></path>
+                                  <path
+                                    d="M119.866,379.922c-18.033,0-32.704,14.661-32.704,32.68c0,18.021,14.672,32.684,32.704,32.684 c40.537,0,73.516-32.988,73.516-73.535c0-40.547-32.979-73.535-73.517-73.535c-18.033,0-32.704,14.662-32.704,32.684 c0,18.02,14.67,32.68,32.658,32.68c4.521,0.025,8.2,3.691,8.2,8.171C128.021,376.232,124.342,379.897,119.866,379.922z M119.865,347.239c-9.022,0-16.363-7.33-16.363-16.339c0-9.011,7.34-16.344,16.363-16.344c31.527,0,57.176,25.658,57.176,57.195 c0,31.538-25.649,57.195-57.175,57.195c-9.023,0-16.363-7.332-16.363-16.344c0-9.01,7.34-16.339,16.409-16.339 c13.481-0.075,24.449-11.071,24.449-24.512C144.361,358.31,133.392,347.315,119.865,347.239z"
+                                  ></path>
+                                  <path
+                                    d="M239.692,264.184H40.851c-4.513,0-8.17,3.658-8.17,8.17v198.794c0,4.512,3.657,8.17,8.17,8.17h198.841 c4.513,0,8.17-3.658,8.17-8.17V272.355C247.862,267.842,244.205,264.184,239.692,264.184z M231.522,462.979H49.021V280.525h182.501 V462.979z"
+                                  ></path>
+                                  <path
+                                    d="M140.273,213.794c31.533,0,57.187-25.656,57.187-57.191c0-0.041,0-0.083-0.001-0.124 c-0.309-20.346-7.286-42.501-19.139-60.784c-11.757-18.135-25.981-28.962-38.047-28.962c-0.228,0-0.454,0.007-0.68,0.019 c-11.92,0.395-25.831,11.146-37.368,28.943c-11.854,18.283-18.83,40.438-19.139,60.784c-0.001,0.041-0.001,0.083-0.001,0.124 C83.085,188.138,108.738,213.794,140.273,213.794z M181.119,156.663c-0.023,15.289-8.492,28.628-20.976,35.612 c1.619-5.259,2.861-11.411,3.677-18.383c0.524-4.482-2.684-8.54-7.165-9.065c-4.498-0.528-8.541,2.684-9.065,7.166 c-1.657,14.152-5.206,22.025-7.327,24.722c-3.041-3.829-8.217-17.52-8.159-40.092c0.07-27.602,4.386-51.416,8.173-64.61 c3.016,10.531,6.354,27.863,7.643,48.751c0.277,4.505,4.157,7.934,8.657,7.652c4.503-0.278,7.928-4.154,7.651-8.657 c-0.943-15.313-3.156-31.109-6.131-43.98c2.169,2.563,4.363,5.49,6.511,8.804C174.825,120.341,180.842,139.32,181.119,156.663z M115.935,104.583c2.144-3.307,4.335-6.23,6.5-8.79c-0.195,0.849-0.389,1.716-0.584,2.613c-3.82,17.605-6.039,38.809-6.088,58.175 c-0.029,11.483,1.296,24.804,4.656,35.704c-12.494-6.981-20.971-20.326-20.994-35.622 C99.702,139.32,105.718,120.341,115.935,104.583z"
+                                  ></path>
+                                </g>
+                              </svg>
+                            </div>
+                          </a>
+                          
+                            {{ request|title_string:category}}
+                          
+                          
+                        </div>
+                        {% for sub_category in category.sub_categories %}
+                        <a
+                          href="{% url 'sub_category' sub_category.pk %}"
+                          class="dropdown-item border-radius-md"
+                        >
+                          <span class="ps-3">
+                            {{ request|title_string:sub_category }}
+                          </span>
+                        </a>
+                        
+                        {% endfor %}
+
+                        {% endwith %}
+
+                        {% with category=categories|index:1 %}
+                        <div
+                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0 mt-3"
+                        >
+                          <div class="d-inline-block">
+                            <a
+                              href="{% url 'category' category.pk %}"
+                              class="icon icon-shape icon-xs border-radius-md bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center ps-0"
+                            >
+                              <svg
+                                version="1.1"
+                                id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 512 512"
+                                xml:space="preserve"
+                                fill="#000000"
+                              >
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                  <path
+                                    style="fill: #55d0ff"
+                                    d="M478.242,0h-33.758v512h33.758C496.809,512,512,496.809,512,478.242V33.758 C512,15.191,496.809,0,478.242,0z"
+                                  ></path>
+                                  <path
+                                    style="fill: #aae8ff"
+                                    d="M478.242,33.758v444.484c0,18.567-15.191,33.758-33.758,33.758H33.758 C15.191,512,0,496.809,0,478.242V33.758C0,15.191,15.191,0,33.758,0h410.725C463.051,0,478.242,15.191,478.242,33.758z"
+                                  ></path>
+                                  <polygon
+                                    style="fill: #ffe9b7"
+                                    points="239.087,33.758 239.087,239.132 205.329,239.132 171.571,136.445 205.329,33.758 "
+                                  ></polygon>
+                                  <rect
+                                    x="33.758"
+                                    y="33.758"
+                                    style="fill: #ffffff"
+                                    width="171.571"
+                                    height="205.374"
+                                  ></rect>
+                                  <path
+                                    style="fill: #e52c22"
+                                    d="M136.451,68.923v135.033c27.974,0,50.637-22.663,50.637-50.637 C186.436,110.311,155.524,68.923,136.451,68.923z"
+                                  ></path>
+                                  <path
+                                    style="fill: #f27524"
+                                    d="M85.825,153.319c0,27.974,22.663,50.637,50.626,50.637V68.923 C117.389,68.923,86.477,110.311,85.825,153.319z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ec5123"
+                                    d="M136.451,68.923c-6.354,0-16.769,41.386-16.878,84.396c-0.071,27.966,7.556,50.637,16.878,50.637 c9.329,0,16.958-22.663,16.879-50.637C153.229,110.311,142.809,68.923,136.451,68.923z"
+                                  ></path>
+                                  <polygon
+                                    style="fill: #5b4fff"
+                                    points="239.155,272.866 239.155,478.238 205.396,478.238 171.638,375.551 205.396,272.866 "
+                                  ></polygon>
+                                  <rect
+                                    x="33.826"
+                                    y="272.868"
+                                    style="fill: #2e84ff"
+                                    width="171.571"
+                                    height="205.374"
+                                  ></rect>
+                                  <polygon
+                                    style="fill: #ffe9b7"
+                                    points="478.242,272.866 478.242,478.238 444.484,478.238 410.725,375.551 444.484,272.866 "
+                                  ></polygon>
+                                  <rect
+                                    x="272.913"
+                                    y="272.868"
+                                    style="fill: #ffffff"
+                                    width="171.571"
+                                    height="205.374"
+                                  ></rect>
+                                  <polygon
+                                    style="fill: #5b4fff"
+                                    points="478.242,33.758 478.242,239.132 444.484,239.132 410.725,136.445 444.484,33.758 "
+                                  ></polygon>
+                                  <rect
+                                    x="272.913"
+                                    y="33.758"
+                                    style="fill: #2e84ff"
+                                    width="171.571"
+                                    height="205.374"
+                                  ></rect>
+                                  <path
+                                    style="fill: #ffd46e"
+                                    d="M354.495,68.923c37.235,0,67.505,30.292,67.505,67.516c0,37.235-30.27,67.528-67.505,67.528 l22.494-67.528L354.495,68.923z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ffe9b7"
+                                    d="M354.495,68.923c18.612,0,33.747,30.292,33.747,67.516c0,37.235-15.135,67.528-33.747,67.528 c-13.976,0-25.341-11.343-25.341-25.33c0-13.976,11.365-25.319,25.341-25.319c9.272-0.045,16.868-7.596,16.868-16.879 c0-9.272-7.596-16.823-16.868-16.879c-13.976,0-25.341-11.332-25.341-25.319C329.154,80.266,340.519,68.923,354.495,68.923z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ffd46e"
+                                    d="M115.377,308.041c37.235,0,67.505,30.292,67.505,67.516c0,37.235-30.27,67.528-67.505,67.528 l22.494-67.528L115.377,308.041z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ffe9b7"
+                                    d="M115.377,308.041c18.612,0,33.747,30.292,33.747,67.516c0,37.235-15.135,67.528-33.747,67.528 c-13.976,0-25.341-11.343-25.341-25.33c0-13.976,11.365-25.319,25.341-25.319c9.272-0.045,16.868-7.596,16.868-16.879 c0-9.272-7.596-16.823-16.868-16.879c-13.976,0-25.341-11.332-25.341-25.319C90.035,319.383,101.401,308.041,115.377,308.041z"
+                                  ></path>
+                                  <path
+                                    style="fill: #e52c22"
+                                    d="M375.577,308.047V443.08c27.974,0,50.637-22.663,50.637-50.637 C425.562,349.435,394.651,308.047,375.577,308.047z"
+                                  ></path>
+                                  <path
+                                    style="fill: #f27524"
+                                    d="M324.951,392.443c0,27.974,22.663,50.637,50.626,50.637V308.047 C356.515,308.047,325.604,349.435,324.951,392.443z"
+                                  ></path>
+                                  <path
+                                    style="fill: #ec5123"
+                                    d="M375.577,308.047c-6.354,0-16.769,41.386-16.878,84.396c-0.071,27.966,7.556,50.637,16.878,50.637 c9.329,0,16.958-22.663,16.879-50.637C392.355,349.435,381.935,308.047,375.577,308.047z"
+                                  ></path>
+                                </g>
+                              </svg>
+                            </a>
+                          </div>
+                          {{ request|title_string:category}}
+                        </div>
+
+                        {% for sub_category in category.sub_categories %}
+                        <a
+                          href="{% url 'sub_category' sub_category.pk %}"
+                          class="dropdown-item border-radius-md"
+                        >
+                          <span class="ps-3">
+                            {{ request|title_string:sub_category }}
+                          </span>
+                        </a>
+                        
+                        {% endfor %}
+
+                        {% endwith %}
+
+                      </div>
+                    </div>
+                  </li>
+                  <!--======= Item 3 =======-->
+                  <li class="nav-item mx-2 my-auto">
+                    <a href="/about">{{ request|string:'about us' }}</a>
+                  </li>
+                  <!--======= Item 4 =======-->
+                  <li class="nav-item mx-2 my-auto">
+                    <a href="/gallery">{{ request|string:'gallery' }}</a>
+                  </li>
+                  <!--======= Item 5 =======-->
+                  <li class="nav-item mx-2 my-auto">
+                    <a href="/contact">{{ request|string:'contact' }}</a>
+                  </li>
+                  <!--======= Item 6 =======-->
+                  <li class="nav-item  ms-auto">
+                    <!--======= Button Trigger Modal =======-->
+                    <button
+                      type="button"
+                      class="btn btn-sm bg-gradient-success btn-round mb-0 me-1 mt-2 mt-md-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                      id="button123"
+                    >
+                      {{ request|string:'communication' }}
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!--======= Modal Navigation =======-->
+    <section class="modal-trigger">
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="text-primary text-center text-gradient mb-2">
+                {{ request|string:'send us message' }}
+              </h3>
+              <button
+                type="button"
+                class="btn btn-danger mx-1 btn-round"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                id="button11"
+              >
+                x
+              </button>
+            </div>
+            <!--======= Modal Body =======-->
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <form class="p-3" id="contact-form" method="post">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label class="text-dark">{{ request|string:'type name' }}:</label>
+                          <input
+                            class="form-control"
+                            placeholder="{{ request|string:'type name' }}"
+                            type="text"
+                          />
+                        </div>
+                        <div class="col-12">
+                          <label class="text-dark">{{ request|string:'your phone' }}:</label>
+                          <input
+                            class="form-control"
+                            placeholder="{{ request|string:'your phone' }}"
+                            type="number"
+                            minlength="8"
+                          />
+                        </div>
+                        <div class="col-12">
+                          <label class="text-dark">{{ request|string:'your email' }}</label>
+                          <input
+                            class="form-control"
+                            placeholder="{{ request|string:'your email' }}"
+                            type="email"
+                          />
+                        </div>
+                        <div class="col-12">
+                          <div class="form-group mb-0">
+                            <label class="text-dark">{{ request|string:'specify volume' }}</label>
+                            <select
+                              name="select"
+                              class="form-select"
+                              id="select"
+                            >
+                              <option value="1-5">
+                                {{ request|string:'from' }} 1 {{ request|string:'to' }} 5 {{ request|string:'tons' }}
+                              </option>
+                              <option value="5-10">
+                                {{ request|string:'from' }} 5 {{ request|string:'to' }} 10 {{ request|string:'tons' }}
+                              </option>
+                              <option value="10-20">
+                                {{ request|string:'from' }} 10 {{ request|string:'to' }} 20 {{ request|string:'tons' }}
+                              </option>
+                              <option value="20-100">
+                                {{ request|string:'from' }} 20 {{ request|string:'to' }} 100 {{ request|string:'tons' }}
+                              </option>
+                              <option value="more">{{ request|string:'more volume' }}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center my-4">
+                          <button
+                            type="submit"
+                            class="btn btn-round bg-gradient-success mb-0"
+                          >
+                            {{ request|string:'send' }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% block main %}
+    
+    
+    {% endblock %}
+
+    <!--======= Footer Section =======-->
+    <footer class="footer pt-5 mt-5">
+      <hr class="horizontal dark mb-5" />
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 mb-4 ms-auto">
+            <div>
+              <h6 class="text-dark font-weight-bolder">
+                <a
+                  class="navbar-brand font-weight-bolder ms-sm-3"
+                  href="/"
+                >
+                  <img
+                    src="{% static 'assets/img/companyLogo/SunnySweetFruits-onlyGraphic.png' %}"
+                    alt="img"
+                    style="height: 50px"
+                  />
+                  Sunny Sweet Fruits
+                </a>
+              </h6>
+            </div>
+            <div>
+              <p class="mt-3 mb-2 fs-8 opacity-8 px-4">
+                <i class="fa-solid fa-location-dot fa-sm"></i>
+                Адрес: Узбекистан, 100085 Ташкент, Сергилийский район, улица
+                Саадий 41
+              </p>
+              <ul class="d-flex flex-row my-5 ms-n3 nav">
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-facebook text-lg opacity-8"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-twitter text-lg opacity-8"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-dribbble text-lg opacity-8"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-github text-lg opacity-8"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-youtube text-lg opacity-8"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-6 col-12 mb-4">
+            <div>
+              <h6 class="text-gradient text-primary text-sm">{{ request|string:'company' }}</h6>
+              <ul class="flex-column ms-n3 nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/about" target="_blank">
+                    {{ request|string:'about us' }}
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/gallery" target="_blank">
+                    {{ request|string:'gallery' }}
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact" target="_blank">
+                    {{ request|string:'contact' }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-12 mb-4">
+            <div>
+              <h6 class="text-gradient text-primary text-sm">
+                {{ request|string:'help and support' }}
+              </h6>
+              <ul class="flex-column ms-n3 nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="mailto:SunnySweetFruits@gmail.com" target="_blank">
+                    SunnySweetFruits@gmail.com
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="mailto:Info@SunnySweetFruits.com" target="_blank">
+                    Info@SunnySweetFruits.com
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="tel:+998900374044" target="_blank">
+                    +99890 037 40 44
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="tel:+998712502663" target="_blank">
+                    +99871 250 26 63
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-12 mb-4 me-auto">
+            <div>
+              <h6 class="text-gradient text-primary text-sm">{{ request|string:'legal' }}</h6>
+              <ul class="flex-column ms-n3 nav">
+                <!-- terms-conditions generatoridan foydalansa bo'ladi  -->
+                <li class="nav-item">
+                  <a class="nav-link" href="#" target="_blank"> {{ request|string:'terms' }} </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#" target="_blank">
+                    {{ request|string:'privacy policy' }}
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#" target="_blank"> {{ request|string:'licenses' }} </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="text-center">
+              <p class="my-4 text-sm">
+                {{ request|string:'all rights reserved' }}. Copyright ©
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                Powered by
+                <a
+                  class="text-success"
+                  href=""
+                  target="_blank"
+                  ></a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--======= JS Files =======-->
+    <script
+      src="{% static 'assets/js/core/popper.min.js' %}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{% static 'assets/js/core/bootstrap.min.js' %}"
+      type="text/javascript"
+    ></script>
+    <script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/countup.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/choices.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/prism.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/highlight.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/rellax.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/tilt.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/choices.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/parallax.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+    <script
+      src="{% static 'assets/js/soft-design-system.min.js' %}?v=1.0.9"
+      type="text/javascript"
+    ></script>
+
+    <!--======= Soundly Buttons Scripts =======-->
+    <script src="{% static 'assets/js/buttonsounds.js' %}"></script>
+  </body>
+</html>
+

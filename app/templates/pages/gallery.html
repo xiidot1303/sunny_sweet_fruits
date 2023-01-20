@@ -1,0 +1,498 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block link %}
+    <link
+      id="pagestyle"
+      href="{% static 'assets/css/soft-design-system.css' %}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'assets/css/gallerystyle.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/snow.css' %}">
+{% endblock %}
+
+
+{% block main %}
+    <!--======= Header Section =======-->
+    <header class="bg-gradient-dark">
+      <!-- snow -->
+      <section class="snow">
+        <div class="snowflakes">
+          <div class="snowflake">
+          ❅
+          </div>
+          <div class="snowflake">
+          ❅
+          </div>
+          <div class="snowflake">
+          ❆
+          </div>
+          <div class="snowflake">
+          ❄
+          </div>
+          <div class="snowflake">
+          ❅
+          </div>
+          <div class="snowflake">
+          ❆
+          </div>
+          <div class="snowflake">
+          ❄
+          </div>
+          <div class="snowflake">
+          ❅
+          </div>
+          <div class="snowflake">
+          ❆
+          </div>
+          <div class="snowflake">
+          ❄
+          </div>
+        </div>
+      </section>
+      <div
+        class="page-header min-vh-75"
+        style="background-image: url('{% static 'assets/img/curved-images/curvedballon.png' %}')"
+      >
+        <span class="mask bg-gradient-success opacity-8"></span>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mx-auto my-auto">
+              <h1 class="text-white">{{ request|string:'gallery' }}</h1>
+              <p class="lead mb-4 text-white opacity-8">
+                {{ request|string:'excerpts from some of the exhibitions in which we participated' }}
+              </p>
+              <h6 class="text-white mb-2 mt-5">{{ request|string:'find us on' }}</h6>
+              <div class="d-flex justify-content-center">
+                <a href="#"
+                  ><i class="fab fa-facebook text-lg text-white me-4"></i
+                ></a>
+                <a href="#"
+                  ><i class="fab fa-instagram text-lg text-white me-4"></i
+                ></a>
+                <a href="#"
+                  ><i class="fab fa-whatsapp text-lg text-white me-4"></i
+                ></a>
+                <a href="#"
+                  ><i class="fab fa-telegram text-lg text-white"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="position-absolute w-100 z-index-1 bottom-0">
+          <svg
+            class="waves"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 40"
+            preserveAspectRatio="none"
+            shape-rendering="auto"
+          >
+            <defs>
+              <path
+                id="gentle-wave"
+                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+              />
+            </defs>
+            <g class="moving-waves">
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="-1"
+                fill="rgba(255,255,255,0.40"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="3"
+                fill="rgba(255,255,255,0.35)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="5"
+                fill="rgba(255,255,255,0.25)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="8"
+                fill="rgba(255,255,255,0.20)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="13"
+                fill="rgba(255,255,255,0.15)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="16"
+                fill="rgba(255,255,255,1"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </header>
+    <!--=======  Exhibition Tashkent =======-->
+    <section class="gallery-section">
+      <h3 class="text-center py-2">{{ request|string:'fruit and vegetable fair in tashkent' }}</h3>
+      <div class="gallery-container">
+        <div class="gallery-item" data-index="1">
+          <img 
+            src="{% static 'assets/img/exhibition/tashkent/1.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="2">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent/2.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="3">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent/3.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="4">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent/4.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="5">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent/5.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="6">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent/6.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="7">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent/7.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="8">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent/8.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="9">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent/9.jpg' %}"
+          />
+        </div>
+      </div>
+    </section>
+    <!--=======  Exhibition German =======-->
+    <section class="gallery-section">
+      <h3 class="text-center py-3">{{ request|string:'photos from exhibition biofach in germany' }}</h3>
+      <div class="gallery-container">
+        <div class="gallery-item" data-index="10">
+          <img
+            src="{% static 'assets/img/exhibition/german/1.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="11">
+          <img
+            src="{% static 'assets/img/exhibition/german/2.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="12">
+          <img
+            src="{% static 'assets/img/exhibition/german/3.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="13">
+          <img
+            src="{% static 'assets/img/exhibition/german/4.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="14">
+          <img
+            src="{% static 'assets/img/exhibition/german/5.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="15">
+          <img
+            src="{% static 'assets/img/exhibition/german/6.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="16">
+          <img
+            src="{% static 'assets/img/exhibition/german/7.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="17">
+          <img
+            src="{% static 'assets/img/exhibition/german/8.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="18">
+          <img
+            src="{% static 'assets/img/exhibition/german/9.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="19">
+          <img
+            src="{% static 'assets/img/exhibition/german/10.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="20">
+          <img
+            src="{% static 'assets/img/exhibition/german/11.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="21">
+          <img
+            src="{% static 'assets/img/exhibition/german/12.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="22">
+          <img
+            src="{% static 'assets/img/exhibition/german/13.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="23">
+          <img
+            src="{% static 'assets/img/exhibition/german/14.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="24">
+          <img
+            src="{% static 'assets/img/exhibition/german/15.jpg' %}"
+          />
+        </div>
+      </div>
+    </section>
+    <!--======= Industry In Uzbekistan =======-->
+    <section class="gallery-section">
+      <h3 class="text-center py-3">{{ request|string:'gallery from production' }}</h3>
+      <div class="gallery-container">
+        <div class="gallery-item" data-index="25">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/1.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="26">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/2.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="27">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/3.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="28">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/4.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="29">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/5.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="30">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/6.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="31">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/7.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="32">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/8.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="33">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/9.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="34">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/10.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="35">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/11.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="36">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/12.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="37">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/13.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="38">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/14.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="39">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/15.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="40">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/16.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="41">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/17.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="42">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/18.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="43">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/19.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="44">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/20.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="45">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/21.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="46">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/22.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="47">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/23.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="48">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/24.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="49">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/25.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="50">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/26.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="51">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/27.jpeg' %}"
+          />
+        </div>
+        
+        <div class="gallery-item" data-index="52">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/28.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="53">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/29.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="54">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/30.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="55">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/31.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="56">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/32.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="57">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/33.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="58">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/34.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="59">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/35.jpg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="60">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/36.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="61">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/37.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="62">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/38.jpeg' %}"
+          />
+        </div>
+        <div class="gallery-item" data-index="63">
+          <img
+            src="{% static 'assets/img/exhibition/tashkent-Industry/39.jpg' %}"
+          />
+        </div>
+      </div>
+    </section>  
+    {% endblock %}
+
+    {% block script %}
+    <!--======= Gallery Scrips =======-->
+    <script src="{% static 'assets/js/galleryScripts.js"></script>
+    <script>
+    if (document.getElementsByClassName("page-header")) {
+      window.addEventListener("scroll", function () {
+        var scrollPosition = window.pageYOffset;
+        var bgParallax = document.querySelector(".page-header");
+        var limit = bgParallax.offsetTop + bgParallax.offsetHeight;
+        if (
+          scrollPosition > bgParallax.offsetTop &&
+          scrollPosition <= limit
+        ) {
+          bgParallax.style.backgroundPositionY =
+            50 - ((10 * scrollPosition) / limit) * 3 + "%";
+        } else {
+          bgParallax.style.backgroundPositionY = "50%";
+        }
+      });
+    }
+    </script>
+  {% endblock %}
