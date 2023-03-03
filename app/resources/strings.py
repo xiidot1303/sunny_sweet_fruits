@@ -753,9 +753,9 @@ lang_dict = {
         ""
     ],
 
-    "": [
-        "", 
-        "", 
+    "from natural legumes grown in uzbekistan": [
+        "из натуральных бобовых, выращенных в Узбекистане", 
+        "From natural legumes grown in uzbekistan", 
         ""
     ],
     

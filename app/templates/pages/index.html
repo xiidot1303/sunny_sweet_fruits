@@ -89,7 +89,7 @@
             <div class="row">
               {% with category=categories|index:0 %}
               <!--======= Item 1 =======-->
-              <div class="col-md-6 position-relative">
+              <div class="col-md-4 position-relative">
                 <a
                   href="{% url 'category' category.pk %}"
                   class="p-3 text-center d-block"
@@ -109,7 +109,7 @@
               {% endwith %}
               <!--======= Item 2 =======-->
               {% with category=categories|index:1 %}
-              <div class="col-md-6 position-relative">
+              <div class="col-md-4 position-relative">
                 <a href="{% url 'category' category.pk %}" class="p-3 text-center d-block">
                   <img
                     src="files/{{ category.photo }}"
@@ -124,21 +124,25 @@
                 <hr class="vertical dark" />
               </div>
               {% endwith %}
+
               <!--======= Item 3 =======-->
-              <!-- <div class="col-md-4 position-relative">
-                <a href="./pages/contact.html" class="p-3 text-center d-block">
+              {% with category=categories|index:2 %}
+              <div class="col-md-4 position-relative">
+                <a href="{% url 'category' category.pk %}" class="p-3 text-center d-block">
                   <img
-                    src="{% static 'assets/img/fruits.jpg' %}"
+                    src="files/{{ category.photo }}"
                     alt="img"
                     style="border-radius: 50%; width: 60%"
                   />
-                  <h5 class="mt-3">Фрукты</h5>
+                  <h5 class="mt-3">{{ request|title_string:category}}</h5>
                   <p class="text-sm text-dark">
-                    Из натуральных Фрукты, выращенных в Узбекистане
+                    {{ request|string:'from natural legumes grown in uzbekistan' }}
                   </p>
                 </a>
                 <hr class="vertical dark" />
-              </div> -->
+              </div>
+              {% endwith %}
+
 
             </div>
           </div>
